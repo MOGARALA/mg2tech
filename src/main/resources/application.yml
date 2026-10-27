@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  shutdown: graceful
+spring:
+  application:
+    name: mg2-technologies
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: MG2 Technologies
+    version: 1.0.0

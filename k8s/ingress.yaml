@@ -1,0 +1,24 @@
+# Example for a cluster with NGINX Ingress Controller and a pre-created TLS secret.
+# Adapt ingressClassName, TLS and annotations if using Azure Application Gateway / AGIC.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mg2-api
+  namespace: mg2
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - mg2technologies.com
+      secretName: mg2-tls
+  rules:
+    - host: mg2technologies.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mg2-api
+                port:
+                  number: 80

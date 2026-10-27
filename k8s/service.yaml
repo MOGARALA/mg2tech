@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mg2-api
+  namespace: mg2
+spec:
+  type: ClusterIP
+  selector:
+    app: mg2-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
