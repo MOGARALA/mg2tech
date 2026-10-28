@@ -49,3 +49,10 @@ The Ingress example is for NGINX Ingress Controller. If your AKS uses Azure Appl
 - Pin GitHub Actions to reviewed commit SHAs for hardened supply-chain security.
 
 This is a starter application, not a complete public-facing website or fully hardened production deployment.
+
+## Docker Build 
+- docker build -t mg2-frontend:1.0.0 .
+- sudo ss -lntp | grep ':80 '
+- docker ps
+- docker run -d --name mg2-frontend --restart unless-stopped -p 80:80 mg2-frontend:1.0.0
+- curl -I http://localhost/
